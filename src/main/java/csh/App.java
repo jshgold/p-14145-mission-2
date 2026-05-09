@@ -8,10 +8,7 @@ public class App {
     private final Scanner sc = new Scanner(System.in);
     private final WiseSayingController controller = new WiseSayingController(sc);
     public void run() {
-        CommonUtil commonUtil = new CommonUtil();
-        if (commonUtil.isExistDirectory()) {
-            commonUtil.createFile();
-        }
+        InitApp.init();
 
         while(true) {
             System.out.print("명령) ");
@@ -41,6 +38,7 @@ public class App {
                     }
                     controller.requestDelete(id);
                 }
+                case "build" -> controller.requestBuild();
                 default -> System.out.println("잘못된 입력입니다. 다시 입력하세요");
             }
         }

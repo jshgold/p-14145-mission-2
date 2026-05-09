@@ -8,7 +8,16 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public class WiseSayingRepository {
-    private final Map<Integer, WiseSaying> map = new TreeMap<>(Comparator.reverseOrder());
+    private static WiseSayingRepository instance;
+    private WiseSayingRepository() {}
+    public static WiseSayingRepository getInstance() {
+        if(instance == null) {
+            instance = new WiseSayingRepository();
+        }
+        return instance;
+    }
+
+    private static final Map<Integer, WiseSaying> map = new TreeMap<>(Comparator.reverseOrder());
 
     public void save(WiseSaying wiseSaying) {
         map.put(wiseSaying.getId(), wiseSaying);

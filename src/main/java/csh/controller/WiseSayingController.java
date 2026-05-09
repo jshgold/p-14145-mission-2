@@ -10,6 +10,7 @@ public class WiseSayingController {
     private final Scanner sc;
     private final WiseSayingService service = new WiseSayingService();
 
+
     public WiseSayingController(Scanner sc) {
         this.sc = sc;
     }
@@ -52,5 +53,10 @@ public class WiseSayingController {
         boolean isDeleted = service.deleteById(id);
         if (isDeleted) System.out.println("%d번 명언이 삭제되었습니다".formatted(id));
         else System.out.println("해당 명언은 존재하지 않습니다");
+    }
+
+    public void requestBuild() {
+        service.buildJsonArray();
+        System.out.println("data.json 파일의 내용이 갱신되었습니다.");
     }
 }

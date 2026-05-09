@@ -60,7 +60,7 @@ public class WiseSaying {
         sb.append("{");
         sb.append("\"id\":" + id + ",");
         sb.append("\"content\":\"" + content + "\",");
-        sb.append("\"author\":\"" + author + "\",");
+        sb.append("\"author\":\"" + author + "\"");
         sb.append("}");
         return sb.toString();
     }
