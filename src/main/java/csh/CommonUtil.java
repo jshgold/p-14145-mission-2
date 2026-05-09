@@ -66,13 +66,11 @@ public class CommonUtil {
         try {
             InputStream is = new FileInputStream(file);
             byte[] x = is.readAllBytes();
-             jsonString = new String(x, StandardCharsets.UTF_8);
+            jsonString = new String(x, StandardCharsets.UTF_8);
         } catch (IOException ie) {
             System.out.println(ie.getMessage());
         }
-        jsonString = jsonString.replace("{","");
-        jsonString = jsonString.replace("}","");
-        jsonString = jsonString.replace("\"","");
+        jsonString = jsonString.replace("{","").replace("}","").replace("\"","");
         Map<String,String> map = new HashMap<>();
         String[] params = jsonString.split(",");
         for(String param : params) {
